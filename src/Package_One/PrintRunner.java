@@ -8,6 +8,7 @@ public class PrintRunner implements Runnable {
 
     @Override
     public void run() {
+
         System.out.println("Testing run method");
     }
 }
