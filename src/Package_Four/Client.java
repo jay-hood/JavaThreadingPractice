@@ -13,7 +13,7 @@ public class Client {
             thread.start();
             InetAddress host = InetAddress.getLocalHost();
             Socket sock = new Socket(host,5005);
-            PrintWriter print = new PrintWriter(sock.getOutputStream());
+            PrintWriter print = new PrintWriter(sock.getOutputStream(), true);
             String message = "Test message.";
             System.out.println("Sending message.");
             print.println(message);

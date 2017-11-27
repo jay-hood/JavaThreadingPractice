@@ -15,13 +15,14 @@ public class Client {
         thread.start();
 
         Socket socket = new Socket(host,5001);
-        String message = "First";
+        String outgoing_message = "";
         Scanner scan = new Scanner(System.in);
-        PrintWriter printer = new PrintWriter(socket.getOutputStream());
-        while(!message.equals("close")) {
-            System.out.println("Enter message");
-            message = scan.nextLine();
-            printer.println(message);
+        PrintWriter printer = new PrintWriter(socket.getOutputStream(), true);//have to have true for autoflush
+        System.out.println("Enter message: ");
+        while(!outgoing_message.equals("fish")) {
+            outgoing_message = scan.nextLine();
+            printer.println(outgoing_message);
+            System.out.println("Enter message: ");
         }
         socket.close();
 
