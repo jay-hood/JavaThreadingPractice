@@ -11,7 +11,7 @@ public class MultiThreadServer implements Runnable {
         this.csocket = csocket;
     }
     public static void main(String args[]) throws Exception {
-        ServerSocket ssock = new ServerSocket(1234);
+        ServerSocket ssock = new ServerSocket(7007);
         System.out.println("Listening");
 
         while (true) {
