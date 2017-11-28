@@ -16,15 +16,15 @@ public class Server {
     public Server(int port, String server_type) throws IOException {
         String temp = server_type.toLowerCase();
         if (temp.equals("sender")){
+            this.host = InetAddress.getLocalHost();
             this.socket = new Socket(host, port);
         }
         else if(temp.equals("receiver")){
-            this.host = InetAddress.getLocalHost();
             this.server_socket = new ServerSocket(port);
         }
         else{
-            throw new Exception;
-            System.out.println("Invaild server type parameters");
+            System.out.println("Incorrect server type entered.");
+            System.exit(1);
         }
     }
 

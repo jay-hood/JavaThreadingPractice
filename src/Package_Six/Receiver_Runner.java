@@ -22,6 +22,7 @@ public class Receiver_Runner implements Runnable {
             while(!message.equals("close")){
                 message = scan.nextLine();
                 System.out.println("Message from sender: "+message);
+                System.out.println("Enter message: ");
             }
         }
         catch(IOException iex){

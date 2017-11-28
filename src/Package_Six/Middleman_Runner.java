@@ -19,13 +19,13 @@ public class Middleman_Runner implements Runnable {
     public void run(){
         try{
             Socket incoming = ss.accept();
-            Scanner scan = new Scanner(incoming.getInputStream());
+            Scanner user_input = new Scanner(incoming.getInputStream());
             PrintWriter printer = new PrintWriter(s.getOutputStream(), true);
             String message = "";
             while(!message.equals("close")){
-                message = scan.nextLine();
+                message = user_input.nextLine();
                 System.out.println("Message to be sent to receiver: " + message);
-                printer.println();
+                printer.println(message);
             }
         }
         catch(IOException iex){

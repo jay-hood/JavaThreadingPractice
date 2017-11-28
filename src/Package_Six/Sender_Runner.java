@@ -3,7 +3,6 @@ package Package_Six;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Sender_Runner implements Runnable{
@@ -17,12 +16,13 @@ public class Sender_Runner implements Runnable{
     public void run(){
 
         try{
-            Scanner scan = new Scanner(System.in);
+            Scanner user_input = new Scanner(System.in);
+            Scanner ack_input = new Scanner(sock.getInputStream());
             PrintWriter print = new PrintWriter(sock.getOutputStream(), true);
             String message = "";
+            System.out.println("Enter message: ");
             while(!message.equals("close")){
-                System.out.println("Enter message: ");
-                message = scan.nextLine();
+                message = user_input.nextLine();
                 print.println(message);
             }
             sock.close();
